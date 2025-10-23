@@ -10,9 +10,18 @@
  * else              out(t+1) = out(t)
  */
 CHIP PC {
-    IN in[16],inc, load, reset;
+    IN in[16], reset, load, inc;
     OUT out[16];
     
     PARTS:
-    //// Replace this comment with your code.
+    // Increment the current output
+    Inc16(in= outReg, out= increm);
+    // Mux 1 = chooses between out(t) and out(t)+1 based on inc
+    Mux16(a= outReg, b= increm, sel= inc, out= incOut);
+    // Mux 2 = chooses between previous result and in based on load
+    Mux16(a= incOut, b= in, sel= load, out= afterLoad);
+    // Mux 3 = chooses between previous result and 0 based on reset
+    Mux16(a= afterLoad, b= false, sel= reset, out= toLoad);
+    // Register = always load (load=true) because the logic done with muxes
+    Register(in= toLoad, load= true, out= outReg, out= out);
 }
