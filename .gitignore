@@ -1,1 +1,14 @@
+# Compiled files
+*.o
+*.exe
+main
+
+# Code::Blocks files
+*.cbp
+*.depend
+*.layout
+bin/
+obj/
+
+# macOS files (you already have .DS_Store)
 .DS_Store
