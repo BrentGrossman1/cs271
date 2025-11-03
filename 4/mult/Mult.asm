@@ -1,10 +1,28 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/4/Mult.asm
+//INITIALIZE R2 TO 0
+@2
+M=0  
+(LOOP)
+//LOADS ADDRESS OF R1 TO REGISTER A, THEN SETS REGISTER D TO THE MEMORY VALUE AT REGISTER A
+@1
+D=M  
 
-// Multiplies R0 and R1 and stores the result in R2.
-// (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
-// The algorithm is based on repetitive addition.
+//IF VALUE IN D == 0 JUMP TO END
+@END
+D;JEQ
 
-//// Replace this comment with your code.
+//LOADS R0 MEMORY VALUE INTO REGISTER D
+@0
+D=M
+//THIS LOADS R2 AND THEN ADDS THE VALUE IN D TO THE CURRENT VALUE STORED IN R2'S ADDRESS
+@2
+M=D+M  
+//LOADS R1, AND THEN DECREMENTS ITS MEMORY VALUE BY 1
+@1
+M=M-1
+//LOADS THE LOOP LABLE ADDRESS AND JUMPS/LOOPS BACK TO IT
+@LOOP
+0;JMP
+//END LOOP
+(END)
+@END
+0;JMP
