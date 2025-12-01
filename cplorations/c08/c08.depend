@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1763331614 source:c:\users\brent\desktop\cs271\c08\symtable.c
+	"symtable.h"
+
+1763883130 c:\users\brent\desktop\cs271\c08\symtable.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+
+1763888442 source:c:\users\brent\desktop\cs271\c08\error.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	"error.h"
+
+1763889152 c:\users\brent\desktop\cs271\c08\error.h
+	<stdarg.h>
+
+1763889018 source:c:\users\brent\desktop\cs271\c08\main.c
+	"parser.h"
+	"symtable.h"
+	"error.h"
+
+1763888442 c:\users\brent\desktop\cs271\c08\parser.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<stdint.h>
+
